@@ -1,0 +1,12 @@
+[{
+  "accel_x" : -457,
+  "accel_y" : -4899,
+  "accel_z" : -5509,
+  "gyro_x" : -210,
+  "gyro_y" : -371,
+  "gyro_z" : 285,
+  "heat" : 26,
+  "humid" : 48,
+  "load_cell" : 37,
+  "temp" : 27
+}]

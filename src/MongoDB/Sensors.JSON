@@ -1,0 +1,58 @@
+[
+    {
+        "time":"16:45:30" ,
+        "date":"20/10/2563",
+        "humid": 47,
+        "temp":28.2 ,
+        "heat":28.4 ,
+        "accel_x":-5840 ,
+        "accel_y":-8924 ,
+        "accel_z":-12792 ,
+        "gyro_x":173 ,
+        "gyro_y":197 ,
+        "gyro_z":-430,
+        "load_cell_1":12 
+    },
+    {
+        "time":"16:45:31" ,
+        "date":"20/10/2563",
+        "humid": 47,
+        "temp":28.2 ,
+        "heat":28.4,
+        "accel_x":-5840 ,
+        "accel_y":-8924 ,
+        "accel_z":-12792 ,
+        "gyro_x":173 ,
+        "gyro_y":197 ,
+        "gyro_z":-430,
+        "load_cell_1":12
+    },
+    {
+        "time":"16:45:32" ,
+        "date":"20/10/2563",
+        "humid": 47,
+        "temp":28.2 ,
+        "heat":28.4,
+        "accel_x":-5840 ,
+        "accel_y":-8924 ,
+        "accel_z":-12792 ,
+        "gyro_x":173 ,
+        "gyro_y":197 ,
+        "gyro_z":-430,
+        "load_cell_1":12
+    },
+    {
+        "time":"16:45:33" ,
+        "date":"20/10/2563",
+        "humid": 47,
+        "temp":28.2 ,
+        "heat":28.4,
+        "accel_x":-5840 ,
+        "accel_y":-8924 ,
+        "accel_z":-12792 ,
+        "gyro_x":173 ,
+        "gyro_y":197 ,
+        "gyro_z":-430,
+        "load_cell_1":12
+    }
+]

@@ -22,10 +22,18 @@ class TablePage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      sensor: []
+      sensor: [],
+      pat_id: null
     };
   };
   componentDidMount() {
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        this.setState({ currentUser: user })
+        const patid = this.state.currentUser.email.slice(0, 10);
+        this.setState({ pat_id: patid })
+      }
+    });
     this.getData();
     setInterval(this.getData, 1000);
 
@@ -33,8 +41,7 @@ class TablePage extends React.Component {
 
 
   getData = () => {
-
-    const imu_ref = firebase.database().ref('sensor').limitToLast(8);
+    const imu_ref = firebase.database().ref('sensor_info').orderByChild('pat_id').equalTo(this.state.pat_id).limitToLast(8);
     imu_ref.once('value', (snapshot) => {
       // console.log(snapshot.key);
       let imu_sens = snapshot.val();

@@ -24,31 +24,23 @@ import firebase from '../firebase.js';
 
 class AuthModalPage extends React.Component {
   state = {
-    show: false,
-    authState: STATE_LOGIN,
-    sideBar: true,
-    sideBarD: false,
-    sideBarP: false,
-    DrID: null,
-    PatID: null,
-    p_addr: null,
-    p_age: null,
-    p_alle: null,
-    p_bDay: null,
-    p_doc_id: null,
-    p_email: null,
-    p_fname: null,
-    p_height: null,
-    p_ill: null,
-    p_job: null,
-    p_next_meet: null,
-    p_nname: null,
-    p_pat_id: null,
-    p_sex: null,
-    p_since_day: null,
-    p_sname: null,
-    p_weight: null
+    show: false, authState: STATE_LOGIN,
+    sideBar: true, sideBarD: false, sideBarP: false,
+    DrID: null, PatID: null,
 
+    p_addr: null, p_age: null, p_alle: null,
+    p_bDay: null, p_doc_id: null, p_email: null,
+    p_fname: null, p_height: null, p_ill: null,
+    p_job: null, p_next_meet: null, p_nname: null,
+    p_pat_id: null, p_sex: null, p_since_day: null,
+    p_sname: null, p_weight: null,
+
+    d_age: null, d_bDay: null, d_cer: null,
+    d_doc_id: null, d_email: null, d_fel: null,
+    d_fname: null, d_lang: null, d_med: null,
+    d_nname: null, d_sci: null, d_sct: null,
+    d_sex: null, d_sname: null, d_spec: null,
+    d_tel: null
   };
 
 
@@ -66,6 +58,38 @@ class AuthModalPage extends React.Component {
         if (email == "doc") {
           const drid = this.state.currentUser.email.slice(0, 9);
           this.setState({ sideBarD: true, sideBar: false, sideBarP: false, DrID: drid, PatID: null })
+          const docRef = firebase.database().ref('doc_info').orderByChild('doc_id').equalTo(drid);
+          docRef.once('value', (snapshot) => {
+            let doc1 = snapshot.val();
+            for (let docs in doc1) {
+              let age2 = doc1[docs].age;
+              let bDay2 = doc1[docs].b_day;
+              let cer2 = doc1[docs].cer;
+              let doc_id2 = doc1[docs].doc_id;
+              let email2 = doc1[docs].email;
+              let fel2 = doc1[docs].fel;
+              let fname2 = doc1[docs].fname;
+              let lang2 = doc1[docs].lang;
+              let med2 = doc1[docs].med;
+              let nname2 = doc1[docs].nname;
+              let sci2 = doc1[docs].sci;
+              let sct2 = doc1[docs].sct;
+              let sex2 = doc1[docs].sex;
+              let sname2 = doc1[docs].sname;
+              let spec2 = doc1[docs].spec;
+              let tel2 = doc1[docs].tel;
+              this.setState({
+                d_age: age2, d_bDay: bDay2,
+                d_cer: cer2, d_doc_id: doc_id2,
+                d_email: email2, d_fel: fel2,
+                d_fname: fname2, d_lang: lang2,
+                d_med: med2, d_nname: nname2,
+                d_sci: sci2, d_sct: sct2,
+                d_sex: sex2, d_sname: sname2,
+                d_spec: spec2, d_tel: tel2
+              });
+            }
+          });
         }
         if (email == "pat") {
           const patid = this.state.currentUser.email.slice(0, 10);
@@ -73,7 +97,6 @@ class AuthModalPage extends React.Component {
           const patRef = firebase.database().ref('pat_info').orderByChild('pat_id').equalTo(patid);
           patRef.once('value', (snapshot) => {
             let pat1 = snapshot.val();
-            let newInfo = [];
             for (let pats in pat1) {
               let addr1 = pat1[pats].address;
               let age1 = pat1[pats].age;
@@ -93,22 +116,14 @@ class AuthModalPage extends React.Component {
               let sname1 = pat1[pats].sname;
               let weight1 = pat1[pats].weight;
               this.setState({
-                p_addr: addr1,
-                p_age: age1,
-                p_alle: all1,
-                p_bDay: bDay1,
-                p_doc_id: doc_id1,
-                p_email: email1,
-                p_fname: fname1,
-                p_height: height1,
-                p_ill: ill1,
-                p_job: job1,
-                p_next_meet: next_meet1,
-                p_nname: nname1,
-                p_pat_id: pat_id1,
-                p_sex: sex1,
-                p_since_day: since_day1,
-                p_sname: sname1,
+                p_addr: addr1, p_age: age1,
+                p_alle: all1, p_bDay: bDay1,
+                p_doc_id: doc_id1, p_email: email1,
+                p_fname: fname1, p_height: height1,
+                p_ill: ill1, p_job: job1,
+                p_next_meet: next_meet1, p_nname: nname1,
+                p_pat_id: pat_id1, p_sex: sex1,
+                p_since_day: since_day1, p_sname: sname1,
                 p_weight: weight1
               });
             }
@@ -217,8 +232,6 @@ class AuthModalPage extends React.Component {
                         <td colspan="20%">{this.state.p_weight} kg</td>
                         <th scope="row">Height:</th>
                         <td colspan="20%">{this.state.p_height} cm</td>
-
-
                       </tr>
                       <tr className="table-info">
                         <th scope="row">Job:</th>
@@ -256,6 +269,122 @@ class AuthModalPage extends React.Component {
             return <Page
               title={"Hello " + this.state.DrID + " "}
               breadcrumbs={[{ name: 'Doctor', active: true }]}>
+              <Card className="mb-3">
+                <CardHeader>Doctor Profile</CardHeader>
+                <Card body>
+                  <Table>
+                    <thead>
+                      <tr className="table-primary">
+                        <th colspan="100%">Doctor Information</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr className="table-info">
+                        <th scope="row">Doctor ID:</th>
+                        <td colspan="100%">{this.state.d_doc_id}</td>
+                      </tr>
+                      <tr className="table-info">
+                        <th scope="row">Nickname:</th>
+                        <td colspan="20%">{this.state.d_nname}</td>
+                        <th scope="row">Sex:</th>
+                        <td colspan="20%">{this.state.d_sex}</td>
+                      </tr>
+                      <tr className="table-info">
+                        <th scope="row">Firstname:</th>
+                        <td colspan="20%">{this.state.d_fname}</td>
+                        <th scope="row">Surname:</th>
+                        <td colspan="20%">{this.state.d_sname}</td>
+                      </tr>
+                      <tr className="table-info">
+                        <th scope="row">Email:</th>
+                        <td colspan="100%">{this.state.d_email}</td>
+                      </tr>
+                      <tr className="table-info">
+                        <th scope="row">Age:</th>
+                        <td colspan="20%">{this.state.d_age}</td>
+                        <th scope="row">Birthday:</th>
+                        <td colspan="20%">{this.state.d_bDay}</td>
+                      </tr>
+                      <tr className="table-info">
+                        <th scope="row">Specialties:</th>
+                        <td colspan="100%">{this.state.d_spec}</td>
+                      </tr>
+                      <tr className="table-info">
+                        <th scope="row">Language spoken:</th>
+                        <td colspan="100%">{this.state.d_lang}</td>
+                      </tr>
+                    </tbody>
+                  </Table>
+                  <Table>
+                    <thead>
+                      <tr className="table-primary">
+                        <th colspan="100%">Qualifications</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr className="table-info">
+                        <th scope="row">Medical School:</th>
+                        <td colspan="100%">{this.state.d_med}</td>
+                      </tr>
+                      <tr className="table-info">
+                        <th scope="row">Board Certifications:</th>
+                        <td colspan="100%">{this.state.d_cer}</td>
+                      </tr>
+                      <tr className="table-info">
+                        <th scope="row">Fellowship:</th>
+                        <td colspan="100%">{this.state.d_fel}</td>
+                      </tr>
+                      <tr className="table-info">
+                        <th scope="row">Special Clinical Trainings:</th>
+                        <td colspan="100%">{this.state.d_sct}</td>
+                      </tr>
+                      <tr className="table-info">
+                        <th scope="row">Special Clinical Interests:</th>
+                        <td colspan="100%">{this.state.d_sci}</td>
+                      </tr>
+                    </tbody>
+                  </Table>
+                  <Table>
+                    <thead>
+                      <tr className="table-primary">
+                        <th colspan="100%">Doctor's Schedule</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr className="table-info">
+                        <td colspan="30%" >Monday</td>
+                        <td colspan="30%" >16:00 - 20:00</td>
+                        <td colspan="30%" >Orthopaedic Center (BIC 20B)</td>
+                      </tr>
+                      <tr className="table-info">
+                        <td colspan="30%" >Tuesday</td>
+                        <td colspan="30%" >16:00 - 20:00</td>
+                        <td colspan="30%" >Orthopaedic Center (BIC 20B)</td>
+                      </tr>
+                      <tr className="table-info">
+                        <td colspan="30%" >Wednesday</td>
+                        <td colspan="30%" >16:00 - 20:00</td>
+                        <td colspan="30%" >Orthopaedic Center (BIC 20B)</td>
+                      </tr>
+                      <tr className="table-info">
+                        <td colspan="30%" >Friday</td>
+                        <td colspan="30%" >16:00 - 20:00</td>
+                        <td colspan="30%" >Orthopaedic Center (BIC 20B)</td>
+                      </tr>
+                      <tr className="table-info">
+                        <td colspan="30%" >Saturday</td>
+                        <td colspan="30%" >16:00 - 20:00</td>
+                        <td colspan="30%" >Orthopaedic Center (BIC 20B)</td>
+                      </tr>
+                      <tr className="table-info">
+                        <td colspan="30%" >Sunday</td>
+                        <td colspan="30%" >12:00 - 16:00</td>
+                        <td colspan="30%" >Orthopaedic Center (BIC 20B)</td>
+                      </tr>
+                    </tbody>
+                  </Table>
+                </Card>
+              </Card>
             </Page>
           }
         })()}

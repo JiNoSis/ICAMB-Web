@@ -1,0 +1,65 @@
+.modal-content {
+    height: 450px;
+    pointer-events: auto;
+    background-color:rgb(255, 255, 255);
+}
+
+.modal-backdrop{
+    background-color:#9053c7;
+    background: -webkit-linear-gradient(-135deg, #c850c0, #4158d0);
+    background: -o-linear-gradient(-135deg, #c850c0, #4158d0);
+    background: -moz-linear-gradient(-135deg, #c850c0, #4158d0);
+    background: linear-gradient(-135deg, #c850c0, #4158d0);
+    background-clip: padding-box;
+}
+
+/*-------------------------------*/
+
+.field{
+    padding-top: 25px;
+    font-size: 23px;
+}
+
+.input{
+    border-radius: 10px;
+}
+/*-------------------------------*/
+.section_container {
+    width: 100%;  
+    min-height: 10vh;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+
+.section_container {
+    width: 100%;
+    margin: 0 auto;
+}
+
+/*---------------------------------*/
+.login_btn {
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+}
+
+.button {
+    background-color: #F85032;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 25px;
+    border-radius: 10px;
+}
+
+

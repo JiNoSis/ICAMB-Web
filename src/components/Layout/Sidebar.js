@@ -25,7 +25,7 @@ const navItems1 = [
 ];
 
 const navItems2 = [
-  { to: '/', name: 'Profile', exact: false, Icon: RiLifebuoyLine },
+  { to: '/', name: 'Profile', exact: true, Icon: RiLifebuoyLine },
   { to: '/sample', name: 'DashBoard', exact: true, Icon: RiLineChartLine },
 ];
 

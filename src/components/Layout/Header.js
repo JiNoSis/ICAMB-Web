@@ -11,6 +11,7 @@ import {
   Navbar,
 } from 'reactstrap';
 import bn from 'utils/bemnames';
+import '../../styles/style.css';
 
 const bem = bn.create('header');
 

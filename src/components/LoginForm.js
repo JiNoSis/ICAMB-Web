@@ -1,5 +1,6 @@
 import React from 'react'
 import firebase from '../firebase'
+import '../styles/style.css';
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -70,7 +71,7 @@ class LoginForm extends React.Component {
     }
 
     return (
-      <section className="section container">
+      <section className="section_container">
         <div className="columns is-centered">
           <div className="column is-half">
             <form onSubmit={this.onSubmit}>
@@ -99,12 +100,12 @@ class LoginForm extends React.Component {
               </div>
 
               <div className="field is-grouped">
-                <div className="control">
-                  <button className="button is-link">Submit</button>
+                <div class="login_btn">
+                  <button className="button is-link">Log In</button>
                 </div>
-                <div className="control">
+                {/* <div className="control">
                   <button className="button is-text">Cancel</button>
-                </div>
+                </div> */}
               </div>
             </form>
           </div>

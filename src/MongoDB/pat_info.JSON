@@ -1,0 +1,40 @@
+[
+    {
+        "pat_id": "patient001",
+        "sex": "Male",
+        "fname": "Adam",
+        "sname": "Something",
+        "nname": "Adam",
+        "age": 22,
+        "b_day": "31-01-1999",
+        "email": "patient001@gmail.com",
+        "doc_id": "doctor001",
+        "allergic": "-",
+        "since_day": 32,
+        "illness": "Broken ankle",
+        "next_meet": 21,
+        "weight": 85,
+        "height": 182,
+        "address": "123/123 Room:2698 D_Avenue Khlong Nueng, Khlong Luang District, Pathum Thani 12120",
+        "job": "Computer Engineer"
+    },
+    {
+        "pat_id": "patient002",
+        "sex": "Female",
+        "fname": "Jena",
+        "sname": "Boboka",
+        "nname": "Jen",
+        "age": 25,
+        "b_day": "01-01-1996",
+        "email": "patient002@gmail.com",
+        "doc_id": "doctor001",
+        "allergic": "love",
+        "since_day": 21,
+        "illness": "Broken ankle",
+        "next_meet": 7,
+        "weight": 48,
+        "height": 162,
+        "address": "123/154 Room:1112 D_Avenue Khlong Nueng, Khlong Luang District, Pathum Thani 12120",
+        "job": "Dentist"
+    }
+]

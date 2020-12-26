@@ -19,7 +19,7 @@ import {
   Input,
 } from 'reactstrap';
 import firebase from '../firebase.js';
-
+import '../styles/style.css';
 
 
 class AuthModalPage extends React.Component {
@@ -172,11 +172,12 @@ class AuthModalPage extends React.Component {
                       <Modal
                         isOpen={this.state.show}
                         toggle={this.toggle}
-                        size="sm"
+                        size="md"
                         backdrop="static"
                         backdropClassName="modal-backdrop-light"
                         external={externalCloseBtn}
-                        centered>
+                        centered
+                        >
                         <ModalBody>
                           <LoginForm />
                         </ModalBody>

@@ -176,7 +176,7 @@ class AuthModalPage extends React.Component {
                         toggle={this.toggle}
                         size="md"
                         backdrop="static"
-                        backdropClassName="modal-backdrop-light"
+                        backdropClassName="modal-backdrop"
                         external={externalCloseBtn}
                         centered
                         >

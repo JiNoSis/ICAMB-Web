@@ -30,12 +30,12 @@ const navItems2 = [
 ];
 
 const navItems3 = [
-  { to: '/', name: 'Profile', exact: false, Icon: RiLifebuoyLine },
-  { to: '/sample', name: 'Patient-Lists', exact: true, Icon: RiLineChartLine },
-  { to: '/load-tables', name: "Load Cell Data", exact: false, Icon: RiEmpathizeFill },
-  { to: '/gyro-tables', name: 'Gyroscope Data', exact: false, Icon: RiHonorOfKingsLine },
-  { to: '/accel-tables', name: 'Angular Acceleration Data', exact: false, Icon: RiLifebuoyLine },
-  { to: '/humid-tables', name: 'Humidity Data', exact: false, Icon: RiTempColdLine },
+  { to: '/', name: 'Profile', exact: true, Icon: RiLifebuoyLine },
+  { to: '/docdas', name: 'Dashboard', exact: true, Icon: RiLineChartLine },
+  { to: '/load-tables', name: "Load Cell Data", exact: true, Icon: RiEmpathizeFill },
+  { to: '/gyro-tables', name: 'Gyroscope Data', exact: true, Icon: RiHonorOfKingsLine },
+  { to: '/accel-tables', name: 'Angular Acceleration Data', exact: true, Icon: RiLifebuoyLine },
+  { to: '/humid-tables', name: 'Humidity Data', exact: true, Icon: RiTempColdLine },
 ];
 
 

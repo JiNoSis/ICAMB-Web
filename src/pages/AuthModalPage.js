@@ -33,7 +33,7 @@ class AuthModalPage extends React.Component {
     p_fname: null, p_height: null, p_ill: null,
     p_job: null, p_next_meet: null, p_nname: null,
     p_pat_id: null, p_sex: null, p_since_day: null,
-    p_sname: null, p_weight: null,p_img: null,
+    p_sname: null, p_weight: null, p_img: null,
 
     d_age: null, d_bDay: null, d_cer: null,
     d_doc_id: null, d_email: null, d_fel: null,
@@ -87,7 +87,7 @@ class AuthModalPage extends React.Component {
                 d_med: med2, d_nname: nname2,
                 d_sci: sci2, d_sct: sct2,
                 d_sex: sex2, d_sname: sname2,
-                d_spec: spec2, d_tel: tel2,d_img: img2
+                d_spec: spec2, d_tel: tel2, d_img: img2
               });
             }
           });
@@ -126,7 +126,7 @@ class AuthModalPage extends React.Component {
                 p_next_meet: next_meet1, p_nname: nname1,
                 p_pat_id: pat_id1, p_sex: sex1,
                 p_since_day: since_day1, p_sname: sname1,
-                p_weight: weight1,p_img: img1
+                p_weight: weight1, p_img: img1
               });
             }
           });
@@ -163,31 +163,27 @@ class AuthModalPage extends React.Component {
             return <Page
               title="Welcome to ICAMB Platform "
               breadcrumbs={[{ name: 'login', active: true }]}>
-              <Row>
-                <Col md="12" sm="12" xs="12">
-                  <Card>
-                    <CardHeader>Click here to Login</CardHeader>
-                    <CardBody>
-                      <Button color="danger" onClick={this.toggle}>
-                        Login
-                </Button>
-                      <Modal
-                        isOpen={this.state.show}
-                        toggle={this.toggle}
-                        size="md"
-                        backdrop="static"
-                        backdropClassName="modal-backdrop"
-                        external={externalCloseBtn}
-                        centered
-                        >
-                        <ModalBody>
-                          <LoginForm />
-                        </ModalBody>
-                      </Modal>
-                    </CardBody>
-                  </Card>
-                </Col>
-              </Row>
+              <Card>
+                <CardHeader>Click here to Login</CardHeader>
+                <CardBody>
+                  <Button color="danger" onClick={this.toggle}>
+                    Login
+                      </Button>
+                  <Modal
+                    isOpen={this.state.show}
+                    toggle={this.toggle}
+                    size="md"
+                    backdrop="static"
+                    backdropClassName="modal-backdrop"
+                    external={externalCloseBtn}
+                    centered
+                  >
+                    <ModalBody>
+                      <LoginForm />
+                    </ModalBody>
+                  </Modal>
+                </CardBody>
+              </Card>
             </Page>
           }
           if (this.state.sideBarP) {
@@ -203,8 +199,8 @@ class AuthModalPage extends React.Component {
                         <th colspan="100%">Patient Information</th>
                       </tr>
                     </thead>
-                    <tr className="table-info"> 
-                    <td align="Center" rowSpan="3" colSpan="100%"> <iframe src={this.state.p_img}width="225" height="225"></iframe></td>
+                    <tr className="table-info">
+                      <td align="Center" rowSpan="3" colSpan="100%"> <iframe src={this.state.p_img} width="225" height="225"></iframe></td>
                     </tr>
                     <tbody>
                       <tr className="table-info">
@@ -247,7 +243,7 @@ class AuthModalPage extends React.Component {
                         <th scope="row">Address:</th>
                         <td colspan="100%">{this.state.p_addr}</td>
                       </tr>
-                      </tbody>
+                    </tbody>
                   </Table>
                   <Table>
                     <thead>
@@ -286,14 +282,14 @@ class AuthModalPage extends React.Component {
                 <CardHeader>Doctor Profile</CardHeader>
                 <Card body>
                   <Table>
-                    
+
                     <thead>
                       <tr className="table-primary">
                         <th colspan="100%">Doctor Information</th>
                       </tr>
                     </thead>
-                    <tr className="table-info"> 
-                    <td align="Center" rowSpan="3" colSpan="100%"> <iframe src={this.state.d_img}width="225" height="225"></iframe></td>
+                    <tr className="table-info">
+                      <td align="Center" rowSpan="3" colSpan="100%"> <iframe src={this.state.d_img} width="225" height="225"></iframe></td>
                     </tr>
                     <tbody>
                       <tr className="table-info">

@@ -15,7 +15,7 @@ const AlertPage = React.lazy(() => import('pages/AlertPage'));
 const AuthModalPage = React.lazy(() => import('pages/AuthModalPage'));
 const BadgePage = React.lazy(() => import('pages/BadgePage'));
 const ButtonGroupPage = React.lazy(() => import('pages/ButtonGroupPage'));
-const ButtonPage = React.lazy(() => import('pages/ButtonPage'));
+const DocDasPage = React.lazy(() => import('pages/DocDasPage'));
 const CardPage = React.lazy(() => import('pages/CardPage'));
 const ChartPage = React.lazy(() => import('pages/ChartPage'));
 const DashboardPage = React.lazy(() => import('pages/DashboardPage'));
@@ -83,6 +83,7 @@ class App extends React.Component {
                 <Route exact path="/forms" component={FormPage} />
                 <Route exact path="/input-groups" component={InputGroupPage} />
                 <Route exact path="/charts" component={ChartPage} />
+                <Route exact path="/docdas" component={DocDasPage} />
               </React.Suspense>
             </MainLayout>
             <Redirect to="/" />

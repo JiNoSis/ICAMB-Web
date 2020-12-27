@@ -33,14 +33,14 @@ class AuthModalPage extends React.Component {
     p_fname: null, p_height: null, p_ill: null,
     p_job: null, p_next_meet: null, p_nname: null,
     p_pat_id: null, p_sex: null, p_since_day: null,
-    p_sname: null, p_weight: null,
+    p_sname: null, p_weight: null,p_img: null,
 
     d_age: null, d_bDay: null, d_cer: null,
     d_doc_id: null, d_email: null, d_fel: null,
     d_fname: null, d_lang: null, d_med: null,
     d_nname: null, d_sci: null, d_sct: null,
     d_sex: null, d_sname: null, d_spec: null,
-    d_tel: null
+    d_tel: null, d_img: null
   };
 
 
@@ -78,6 +78,7 @@ class AuthModalPage extends React.Component {
               let sname2 = doc1[docs].sname;
               let spec2 = doc1[docs].spec;
               let tel2 = doc1[docs].tel;
+              let img2 = doc1[docs].img;
               this.setState({
                 d_age: age2, d_bDay: bDay2,
                 d_cer: cer2, d_doc_id: doc_id2,
@@ -86,7 +87,7 @@ class AuthModalPage extends React.Component {
                 d_med: med2, d_nname: nname2,
                 d_sci: sci2, d_sct: sct2,
                 d_sex: sex2, d_sname: sname2,
-                d_spec: spec2, d_tel: tel2
+                d_spec: spec2, d_tel: tel2,d_img: img2
               });
             }
           });
@@ -115,6 +116,7 @@ class AuthModalPage extends React.Component {
               let since_day1 = pat1[pats].since_day;
               let sname1 = pat1[pats].sname;
               let weight1 = pat1[pats].weight;
+              let img1 = pat1[pats].img;
               this.setState({
                 p_addr: addr1, p_age: age1,
                 p_alle: all1, p_bDay: bDay1,
@@ -124,7 +126,7 @@ class AuthModalPage extends React.Component {
                 p_next_meet: next_meet1, p_nname: nname1,
                 p_pat_id: pat_id1, p_sex: sex1,
                 p_since_day: since_day1, p_sname: sname1,
-                p_weight: weight1
+                p_weight: weight1,p_img: img1
               });
             }
           });
@@ -201,6 +203,9 @@ class AuthModalPage extends React.Component {
                         <th colspan="100%">Patient Information</th>
                       </tr>
                     </thead>
+                    <tr className="table-info"> 
+                    <td align="Center" rowSpan="3" colSpan="100%"> <iframe src={this.state.p_img}width="225" height="225"></iframe></td>
+                    </tr>
                     <tbody>
                       <tr className="table-info">
                         <th scope="row">Patient ID:</th>
@@ -242,6 +247,15 @@ class AuthModalPage extends React.Component {
                         <th scope="row">Address:</th>
                         <td colspan="100%">{this.state.p_addr}</td>
                       </tr>
+                      </tbody>
+                  </Table>
+                  <Table>
+                    <thead>
+                      <tr className="table-primary">
+                        <th colspan="100%">Patient Illness</th>
+                      </tr>
+                    </thead>
+                    <tbody>
                       <tr className="table-info">
                         <th scope="row">Illness:</th>
                         <td colspan="20%">{this.state.p_ill}</td>
@@ -254,11 +268,9 @@ class AuthModalPage extends React.Component {
                       </tr>
                       <tr className="table-info">
                         <th scope="row">Since:</th>
-                        <td colspan="100%">{this.state.p_since_day} days ago</td>
-                      </tr>
-                      <tr className="table-info">
+                        <td colspan="20%">{this.state.p_since_day} days ago</td>
                         <th scope="row">Next Follows-up:</th>
-                        <td colspan="100%">{this.state.p_next_meet} days </td>
+                        <td colspan="20%">{this.state.p_next_meet} days </td>
                       </tr>
                     </tbody>
                   </Table>
@@ -274,11 +286,15 @@ class AuthModalPage extends React.Component {
                 <CardHeader>Doctor Profile</CardHeader>
                 <Card body>
                   <Table>
+                    
                     <thead>
                       <tr className="table-primary">
                         <th colspan="100%">Doctor Information</th>
                       </tr>
                     </thead>
+                    <tr className="table-info"> 
+                    <td align="Center" rowSpan="3" colSpan="100%"> <iframe src={this.state.d_img}width="225" height="225"></iframe></td>
+                    </tr>
                     <tbody>
                       <tr className="table-info">
                         <th scope="row">Doctor ID:</th>

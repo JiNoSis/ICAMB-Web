@@ -28,10 +28,10 @@ const TablePage = React.lazy(() => import('pages/TablePage'));
 const TypographyPage = React.lazy(() => import('pages/TypographyPage'));
 const WidgetPage = React.lazy(() => import('pages/WidgetPage'));
 const SamplePage = React.lazy(() => import('pages/SamplePage'));
-const GyroDataPage = React.lazy(() => import('pages/GyroDataPage'));
-const AccelDataPage = React.lazy(() => import('pages/AccelDataPage'));
-const LoadDataPage = React.lazy(() => import('pages/LoadDataPage'));
-const HumidDataPage = React.lazy(() => import('pages/HumidDataPage'));
+const GyroDataPage = React.lazy(() => import('pages/GyroPage'));
+const AccelDataPage = React.lazy(() => import('pages/AccelPage'));
+const LoadDataPage = React.lazy(() => import('pages/LoadPage'));
+const HumidDataPage = React.lazy(() => import('pages/HumidPage'));
 
 
 const getBasename = () => {

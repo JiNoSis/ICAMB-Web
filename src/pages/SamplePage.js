@@ -357,22 +357,22 @@ const genTempData = () => {
         label: 'temperature',
         fill: true,
         lineTension: 0.1,
-        backgroundColor: 'rgba(220,100,192,0.4)',
-        borderColor: 'rgba(220,100,192,1)',
+        backgroundColor: 'rgba(75,192,192,0.4)',
+        borderColor: 'rgba(75,192,192,1)',
         borderCapStyle: 'butt',
         borderDash: [],
         borderDashOffset: 0.0,
         borderJoinStyle: 'miter',
-        pointBorderColor: 'rgba(220,100,192,1)',
+        pointBorderColor: 'rgba(75,192,192,1)',
         pointBackgroundColor: '#fff',
         pointBorderWidth: 1,
         pointHoverRadius: 5,
-        pointHoverBackgroundColor: 'rgba(220,100,192,1)',
+        pointHoverBackgroundColor: 'rgba(75,192,192,1)',
         pointHoverBorderColor: 'rgba(220,220,220,1)',
         pointHoverBorderWidth: 2,
         pointRadius: 1,
         pointHitRadius: 10,
-        data: temp_list,
+        data: load_list,
       }
     ],
   };
@@ -385,8 +385,8 @@ var loadchartOptions = {
     yAxes: [{
       ticks: {
         beginAtZero: true,
-        min: -100,
-        max: 300
+        min: 0,
+        max: 200
       }
     }]
   }
@@ -399,8 +399,8 @@ var accelchartOptions = {
     yAxes: [{
       ticks: {
         beginAtZero: true,
-        min: 200,
-        max: -200
+        min: 15,
+        max: -15
       }
     }]
   }
@@ -413,8 +413,8 @@ var gyrochartOptions = {
     yAxes: [{
       ticks: {
         beginAtZero: true,
-        min: 50,
-        max: -50
+        min: 200,
+        max: -200
       }
     }]
   }

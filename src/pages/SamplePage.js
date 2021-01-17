@@ -4,7 +4,17 @@ import { Card, CardBody, CardHeader, Row, Col } from 'reactstrap';
 import { Line } from 'react-chartjs-2';
 import firebase from '../firebase.js';
 
-const Period = ['7s ago', '6s ago', '5s ago', '4s ago', '3s ago', '2s ago', '1s ago', 'Now'];
+const Period = [
+  '100', '99', '98', '97', '96', '95', '94', '93', '92', '91',
+  '90', '89', '88', '87', '86', '85', '84', '83', '82', '81',
+  '80', '79', '78', '77', '76', '75', '74', '73', '72', '71',
+  '70', '69', '68', '67', '66', '65', '64', '63', '62', '61',
+  '60', '59', '58', '57', '56', '55', '54', '53', '52', '51',
+  '50', '49', '48', '47', '46', '45', '44', '43', '42', '41',
+  '40', '39', '38', '37', '36', '35', '34', '33', '32', '31',
+  '30', '29', '28', '27', '26', '25', '24', '23', '22', '21',
+  '20', '19', '18', '17', '16', '15', '14', '13', '12', '11',
+  '10', '9', '8', '7', '6', '5', '4', '3', '2', '1'];
 var list = [];
 var load_list = [];
 var gyro_x_list = [];
@@ -35,13 +45,13 @@ class TablePage extends React.Component {
       }
     });
     this.getData();
-    setInterval(this.getData, 1000);
+    setInterval(this.getData, 10000);
 
   };
 
 
   getData = () => {
-    const imu_ref = firebase.database().ref('sensor_info').orderByChild('pat_id').equalTo(this.state.pat_id).limitToLast(8);
+    const imu_ref = firebase.database().ref('sensor_info').orderByChild('pat_id').equalTo(this.state.pat_id).limitToLast(100);
     imu_ref.once('value', (snapshot) => {
       // console.log(snapshot.key);
       let imu_sens = snapshot.val();
@@ -81,8 +91,8 @@ class TablePage extends React.Component {
   render() {
     return (
       <Page
-        title="Sample Graph"
-        breadcrumbs={[{ name: 'sam-graph', active: true }]}
+        title="Dashboard "
+        breadcrumbs={[{ name: 'das-graph', active: true }]}
         className="TablePage"
       >
         <Row>
@@ -90,7 +100,7 @@ class TablePage extends React.Component {
             <Card className="mb-3">
               <CardHeader>Load Cell Data</CardHeader>
               <CardBody>
-                <Line data={genLoadData()} />
+                <Line data={genLoadData()} options={loadchartOptions} />
               </CardBody>
             </Card>
           </Col>
@@ -100,7 +110,7 @@ class TablePage extends React.Component {
             <Card className="mb-3">
               <CardHeader>Angular Acceleration Data</CardHeader>
               <CardBody>
-                <Line data={genAccelData()} />
+                <Line data={genAccelData()} options={accelchartOptions} />
               </CardBody>
             </Card>
           </Col>
@@ -108,7 +118,7 @@ class TablePage extends React.Component {
             <Card className="mb-3">
               <CardHeader>Gyroscope Data</CardHeader>
               <CardBody>
-                <Line data={genGyroData()} />
+                <Line data={genGyroData()} options={gyrochartOptions} />
               </CardBody>
             </Card>
           </Col>
@@ -118,7 +128,7 @@ class TablePage extends React.Component {
             <Card className="mb-3">
               <CardHeader>Humidity Data</CardHeader>
               <CardBody>
-                <Line data={genHumidData()} />
+                <Line data={genHumidData()} options={humchartOptions} />
               </CardBody>
             </Card>
           </Col>
@@ -126,7 +136,7 @@ class TablePage extends React.Component {
             <Card className="mb-3">
               <CardHeader>Temperature Data</CardHeader>
               <CardBody>
-                <Line data={genTempData()} />
+                <Line data={genTempData()} options={tempchartOptions} />
               </CardBody>
             </Card>
           </Col>
@@ -311,6 +321,7 @@ const genAccelData = () => {
 
 const genHumidData = () => {
   return {
+    
     labels: Period,
     datasets: [
       {
@@ -344,7 +355,7 @@ const genTempData = () => {
     datasets: [
       {
         label: 'temperature',
-        fill: false,
+        fill: true,
         lineTension: 0.1,
         backgroundColor: 'rgba(220,100,192,0.4)',
         borderColor: 'rgba(220,100,192,1)',
@@ -366,6 +377,76 @@ const genTempData = () => {
     ],
   };
 };
+
+var loadchartOptions = {
+  showScale: true,
+  pointDot: true,
+  scales: {
+    yAxes: [{
+      ticks: {
+        beginAtZero: true,
+        min: -100,
+        max: 300
+      }
+    }]
+  }
+}
+
+var accelchartOptions = {
+  showScale: true,
+  pointDot: true,
+  scales: {
+    yAxes: [{
+      ticks: {
+        beginAtZero: true,
+        min: 200,
+        max: -200
+      }
+    }]
+  }
+}
+
+var gyrochartOptions = {
+  showScale: true,
+  pointDot: true,
+  scales: {
+    yAxes: [{
+      ticks: {
+        beginAtZero: true,
+        min: 50,
+        max: -50
+      }
+    }]
+  }
+}
+
+var humchartOptions = {
+  showScale: true,
+  pointDot: true,
+  scales: {
+    yAxes: [{
+      ticks: {
+        beginAtZero: true,
+        min: 30,
+        max: 70
+      }
+    }]
+  }
+}
+
+var tempchartOptions = {
+  showScale: true,
+  pointDot: true,
+  scales: {
+    yAxes: [{
+      ticks: {
+        beginAtZero: true,
+        min: 20,
+        max: 45
+      }
+    }]
+  }
+}
 
 
 

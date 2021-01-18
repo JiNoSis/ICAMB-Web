@@ -413,8 +413,8 @@ var gyrochartOptions = {
     yAxes: [{
       ticks: {
         beginAtZero: true,
-        min: 200,
-        max: -200
+        min: 40,
+        max: -40
       }
     }]
   }

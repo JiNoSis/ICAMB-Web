@@ -104,6 +104,14 @@ class TablePage extends React.Component {
               </CardBody>
             </Card>
           </Col>
+          <Col xl={6} lg={12} md={12}>
+            <Card className="mb-3">
+              <CardHeader>Humidity Data</CardHeader>
+              <CardBody>
+                <Line data={genHumidData()} options={humchartOptions} />
+              </CardBody>
+            </Card>
+          </Col>
         </Row>
         <Row>
           <Col xl={6} lg={12} md={12}>
@@ -413,8 +421,8 @@ var gyrochartOptions = {
     yAxes: [{
       ticks: {
         beginAtZero: true,
-        min: 40,
-        max: -40
+        min: 50,
+        max: -50
       }
     }]
   }

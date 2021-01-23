@@ -396,6 +396,10 @@ var loadchartOptions = {
         beginAtZero: true,
         min: 0,
         max: 200
+      },
+      scaleLabel: {
+        display: true,
+        labelString: 'Exerted weight (lbs)'
       }
     }],
     xAxes: [{
@@ -416,6 +420,10 @@ var accelchartOptions = {
         beginAtZero: true,
         min: 15,
         max: -15
+      },
+      scaleLabel: {
+        display: true,
+        labelString: 'Acceleration (m/s^2)'
       }
     }],
     xAxes: [{
@@ -436,6 +444,10 @@ var gyrochartOptions = {
         beginAtZero: true,
         min: 150,
         max: -150
+      },
+      scaleLabel: {
+        display: true,
+        labelString: 'Angular velocity (dps)'
       }
     }],
     xAxes: [{
@@ -456,6 +468,10 @@ var humchartOptions = {
         beginAtZero: true,
         min: 30,
         max: 70
+      },
+      scaleLabel: {
+        display: true,
+        labelString: 'Humidity (%)'
       }
     }],
     xAxes: [{
@@ -476,6 +492,10 @@ var tempchartOptions = {
         beginAtZero: true,
         min: 20,
         max: 45
+      },
+      scaleLabel: {
+        display: true,
+        labelString: 'Temperature (˚C)'
       }
     }],
     xAxes: [{

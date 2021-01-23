@@ -1,13 +1,13 @@
 import firebase from 'firebase';
 
   const firebaseConfig = {
-    apiKey: "AIzaSyCe-2S87ucN6dWikan09t3vflhHehevODA",
-    authDomain: "icamb-85756.firebaseapp.com",
-    databaseURL: "https://icamb-85756.firebaseio.com",
-    projectId: "icamb-85756",
-    storageBucket: "icamb-85756.appspot.com",
-    messagingSenderId: "1030073960470",
-    appId: "1:1030073960470:web:a38a8c477444d1c5c44d37"
+    apiKey: "AIzaSyBVQCwWncgEtYQCwEqtr55wcexAwuERAOQ",
+    authDomain: "icamb-8f692.firebaseapp.com",
+    databaseURL: "https://icamb-8f692-default-rtdb.firebaseio.com",
+    projectId: "icamb-8f692",
+    storageBucket: "icamb-8f692.appspot.com",
+    messagingSenderId: "645549606709",
+    appId: "1:645549606709:web:ebc2071688fe69f8056e7c"
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);

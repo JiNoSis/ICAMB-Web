@@ -44,7 +44,7 @@ const DasPage = () => {
   React.useEffect(() => {
     firebase.database().ref('sensor_info')
       .orderByChild('pat_id').equalTo(query.patId)
-      .limitToFirst(8)
+      .limitToFirst(100)
       .on("value", (data) => {
         let tmpArr = []
         data.forEach(patient => {
@@ -79,7 +79,7 @@ const DasPage = () => {
     setQuery(formData)
   }
   return (
-    <Page title="Dashboard" breadcrumbs={[{ name: 'pat-dashboard', active: true }]}>
+    <Page title="Dashboard" breadcrumbs={[{ name: 'doc-dashboard', active: true }]}>
       {data.map(patient => {
         load_list.push(patient.loadcell);
         accel_x_list.push(patient.accel_x);
@@ -109,31 +109,31 @@ const DasPage = () => {
       <Card className="mb-3">
         <CardHeader>Load Cell Data</CardHeader>
         <CardBody>
-          <Line data={genLoadData(load_list)} />
+          <Line data={genLoadData(load_list)} options={loadchartOptions} />
         </CardBody>
       </Card>
       <Card className="mb-3">
         <CardHeader>Angular Acceleration Data</CardHeader>
         <CardBody>
-          <Line data={genAccelData(accel_x_list, accel_y_list, accel_z_list)} />
+          <Line data={genAccelData(accel_x_list, accel_y_list, accel_z_list)} options={accelchartOptions} />
         </CardBody>
       </Card>
       <Card className="mb-3">
         <CardHeader>Gyroscope Data</CardHeader>
         <CardBody>
-          <Line data={genGyroData(gyro_x_list, gyro_y_list, gyro_z_list)} />
+          <Line data={genGyroData(gyro_x_list, gyro_y_list, gyro_z_list)} options={gyrochartOptions} />
         </CardBody>
       </Card>
       <Card className="mb-3">
         <CardHeader>Humidity Data</CardHeader>
         <CardBody>
-          <Line data={genHumidData(humid_list)} />
+          <Line data={genHumidData(humid_list)} options={humchartOptions} />
         </CardBody>
       </Card>
       <Card className="mb-3">
         <CardHeader>Temperature Data</CardHeader>
         <CardBody>
-          <Line data={genTempData(temp_list)} />
+          <Line data={genTempData(temp_list)} options={tempchartOptions} />
         </CardBody>
       </Card>
     </Page>
@@ -141,7 +141,17 @@ const DasPage = () => {
 };
 
 const genLoadData = (input) => {
-  const Period = ['7s ago', '6s ago', '5s ago', '4s ago', '3s ago', '2s ago', '1s ago', 'Now'];
+  const Period = [
+    '1', '2', '3', '4', '5', '6', '7', '8', '9', '10',
+    '11', '12', '13', '14', '15', '16', '17', '18', '19', '20',
+    '21', '22', '23', '24', '25', '26', '27', '28', '29', '30',
+    '31', '32', '33', '34', '35', '36', '37', '38', '39', '40',
+    '41', '42', '43', '44', '45', '46', '47', '48', '49', '50',
+    '51', '52', '53', '54', '55', '56', '57', '58', '59', '60',
+    '61', '62', '63', '64', '65', '66', '67', '68', '69', '70',
+    '71', '72', '73', '74', '75', '76', '77', '78', '79', '80',
+    '81', '82', '83', '84', '85', '86', '87', '88', '89', '90',
+    '91', '92', '93', '94', '95', '96', '97', '98', '99', '100',];
   return {
     labels: Period,
     datasets: [
@@ -171,7 +181,17 @@ const genLoadData = (input) => {
 };
 
 const genGyroData = (input1, input2, input3) => {
-  const Period = ['7s ago', '6s ago', '5s ago', '4s ago', '3s ago', '2s ago', '1s ago', 'Now'];
+  const Period = [
+    '1', '2', '3', '4', '5', '6', '7', '8', '9', '10',
+    '11', '12', '13', '14', '15', '16', '17', '18', '19', '20',
+    '21', '22', '23', '24', '25', '26', '27', '28', '29', '30',
+    '31', '32', '33', '34', '35', '36', '37', '38', '39', '40',
+    '41', '42', '43', '44', '45', '46', '47', '48', '49', '50',
+    '51', '52', '53', '54', '55', '56', '57', '58', '59', '60',
+    '61', '62', '63', '64', '65', '66', '67', '68', '69', '70',
+    '71', '72', '73', '74', '75', '76', '77', '78', '79', '80',
+    '81', '82', '83', '84', '85', '86', '87', '88', '89', '90',
+    '91', '92', '93', '94', '95', '96', '97', '98', '99', '100',];
   return {
     labels: Period,
     datasets: [
@@ -243,7 +263,17 @@ const genGyroData = (input1, input2, input3) => {
 };
 
 const genAccelData = (input1, input2, input3) => {
-  const Period = ['7s ago', '6s ago', '5s ago', '4s ago', '3s ago', '2s ago', '1s ago', 'Now'];
+  const Period = [
+    '1', '2', '3', '4', '5', '6', '7', '8', '9', '10',
+    '11', '12', '13', '14', '15', '16', '17', '18', '19', '20',
+    '21', '22', '23', '24', '25', '26', '27', '28', '29', '30',
+    '31', '32', '33', '34', '35', '36', '37', '38', '39', '40',
+    '41', '42', '43', '44', '45', '46', '47', '48', '49', '50',
+    '51', '52', '53', '54', '55', '56', '57', '58', '59', '60',
+    '61', '62', '63', '64', '65', '66', '67', '68', '69', '70',
+    '71', '72', '73', '74', '75', '76', '77', '78', '79', '80',
+    '81', '82', '83', '84', '85', '86', '87', '88', '89', '90',
+    '91', '92', '93', '94', '95', '96', '97', '98', '99', '100',];
   return {
     labels: Period,
     datasets: [
@@ -315,7 +345,17 @@ const genAccelData = (input1, input2, input3) => {
 };
 
 const genHumidData = (input) => {
-  const Period = ['7s ago', '6s ago', '5s ago', '4s ago', '3s ago', '2s ago', '1s ago', 'Now'];
+  const Period = [
+    '1', '2', '3', '4', '5', '6', '7', '8', '9', '10',
+    '11', '12', '13', '14', '15', '16', '17', '18', '19', '20',
+    '21', '22', '23', '24', '25', '26', '27', '28', '29', '30',
+    '31', '32', '33', '34', '35', '36', '37', '38', '39', '40',
+    '41', '42', '43', '44', '45', '46', '47', '48', '49', '50',
+    '51', '52', '53', '54', '55', '56', '57', '58', '59', '60',
+    '61', '62', '63', '64', '65', '66', '67', '68', '69', '70',
+    '71', '72', '73', '74', '75', '76', '77', '78', '79', '80',
+    '81', '82', '83', '84', '85', '86', '87', '88', '89', '90',
+    '91', '92', '93', '94', '95', '96', '97', '98', '99', '100',];
   return {
     labels: Period,
     datasets: [
@@ -345,7 +385,17 @@ const genHumidData = (input) => {
 };
 
 const genTempData = (input) => {
-  const Period = ['7s ago', '6s ago', '5s ago', '4s ago', '3s ago', '2s ago', '1s ago', 'Now'];
+  const Period = [
+    '1', '2', '3', '4', '5', '6', '7', '8', '9', '10',
+    '11', '12', '13', '14', '15', '16', '17', '18', '19', '20',
+    '21', '22', '23', '24', '25', '26', '27', '28', '29', '30',
+    '31', '32', '33', '34', '35', '36', '37', '38', '39', '40',
+    '41', '42', '43', '44', '45', '46', '47', '48', '49', '50',
+    '51', '52', '53', '54', '55', '56', '57', '58', '59', '60',
+    '61', '62', '63', '64', '65', '66', '67', '68', '69', '70',
+    '71', '72', '73', '74', '75', '76', '77', '78', '79', '80',
+    '81', '82', '83', '84', '85', '86', '87', '88', '89', '90',
+    '91', '92', '93', '94', '95', '96', '97', '98', '99', '100',];
   return {
     labels: Period,
     datasets: [
@@ -373,5 +423,125 @@ const genTempData = (input) => {
     ],
   };
 };
+
+var loadchartOptions = {
+  showScale: true,
+  pointDot: true,
+  scales: {
+    yAxes: [{
+      ticks: {
+        beginAtZero: true,
+        min: 0,
+        max: 200
+      },
+      scaleLabel: {
+        display: true,
+        labelString: 'Exerted weight (lbs)'
+      }
+    }],
+    xAxes: [{
+      scaleLabel: {
+        display: true,
+        labelString: 'Recorded Data (from oldest -> newest)'
+      }
+    }]
+  }
+}
+
+var accelchartOptions = {
+  showScale: true,
+  pointDot: true,
+  scales: {
+    yAxes: [{
+      ticks: {
+        beginAtZero: true,
+        min: 15,
+        max: -15
+      },
+      scaleLabel: {
+        display: true,
+        labelString: 'Acceleration (m/s^2)'
+      }
+    }],
+    xAxes: [{
+      scaleLabel: {
+        display: true,
+        labelString: 'Recorded Data (from oldest -> newest)'
+      }
+    }]
+  }
+}
+
+var gyrochartOptions = {
+  showScale: true,
+  pointDot: true,
+  scales: {
+    yAxes: [{
+      ticks: {
+        beginAtZero: true,
+        min: 150,
+        max: -150
+      },
+      scaleLabel: {
+        display: true,
+        labelString: 'Angular velocity (dps)'
+      }
+    }],
+    xAxes: [{
+      scaleLabel: {
+        display: true,
+        labelString: 'Recorded Data (from oldest -> newest)'
+      }
+    }]
+  }
+}
+
+var humchartOptions = {
+  showScale: true,
+  pointDot: true,
+  scales: {
+    yAxes: [{
+      ticks: {
+        beginAtZero: true,
+        min: 30,
+        max: 70
+      },
+      scaleLabel: {
+        display: true,
+        labelString: 'Humidity (%)'
+      }
+    }],
+    xAxes: [{
+      scaleLabel: {
+        display: true,
+        labelString: 'Recorded Data (from oldest -> newest)'
+      }
+    }]
+  }
+}
+
+var tempchartOptions = {
+  showScale: true,
+  pointDot: true,
+  scales: {
+    yAxes: [{
+      ticks: {
+        beginAtZero: true,
+        min: 20,
+        max: 45
+      },
+      scaleLabel: {
+        display: true,
+        labelString: 'Temperature (˚C)'
+      }
+    }],
+    xAxes: [{
+      scaleLabel: {
+        display: true,
+        labelString: 'Recorded Data (from oldest -> newest)'
+      }
+    }]
+  }
+}
 
 export default DasPage;

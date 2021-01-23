@@ -15,6 +15,7 @@ const Period = [
   '30', '29', '28', '27', '26', '25', '24', '23', '22', '21',
   '20', '19', '18', '17', '16', '15', '14', '13', '12', '11',
   '10', '9', '8', '7', '6', '5', '4', '3', '2', '1'];
+
 var list = [];
 var load_list = [];
 var gyro_x_list = [];
@@ -421,8 +422,8 @@ var gyrochartOptions = {
     yAxes: [{
       ticks: {
         beginAtZero: true,
-        min: 50,
-        max: -50
+        min: 150,
+        max: -150
       }
     }]
   }
